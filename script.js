@@ -1,65 +1,66 @@
-const nombre = "🎂 Feliz Cumpleaños mi amor 🥳";
+document.addEventListener("DOMContentLoaded", () => {
 
-const noBtn = document.getElementById("noBtn");
-const question = document.getElementById("question");
+  const nombre = "🎂 Feliz Cumpleaños mi amor 🥳";
 
-const noMessages = [
-  "¿Segura? 🙁",
-  "¿De verdad, no? 🥺",
-  "¿Po qué no? 😟",
-  "Eso duele un poquito 😟💔",
-  "¿Segura que no quieres? 😢",
-  "Me voy a poner tiste 🥺",
-  "¿Y si mejor sí? 😔",
-  "Pensé que dirías que sí 🥺",
-  "No era la respuesta que esperaba 💔",
-  "¿Ni por ser un día especial? 🥺",
-  "Voy a fingir que no vi eso 😔",
-  "Aún hay tiempo de cambiar de idea 🙁",
-  "Eso no es una opción 🥺",
-  "Po favo 😢"
-];
-
-let msgIndex = 0;
-
-// Botón NO huye
-noBtn.addEventListener("click", moveNo);
-
-function moveNo() {
-  const x = Math.random() * 90;
-  const y = Math.random() * 90;
-
-  noBtn.style.left = `${x}%`;
-  noBtn.style.top = `${y}px`;
-
-  noBtn.textContent = noMessages[msgIndex];
-  msgIndex = (msgIndex + 1) % noMessages.length;
-}
-
-// Botón SÍ
-
-function vibrateLove(style = "heartbeat") {
-  if (!navigator.vibrate) return;
-
-  const patterns = {
-    soft: [25, 40, 25],
-    heartbeat: [40, 60, 80, 60, 40],
-    celebration: [50, 30, 50, 30, 100],
-    long: [120]
-  };
-
-  navigator.vibrate(patterns[style] || patterns.heartbeat);
-}
-
-function openLetter() {
-  createConfetti();
-  if (navigator.vibrate) {
-    vibrateLove("heartbeat");
-  }
-
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
   const card = document.getElementById("card");
 
-  card.innerHTML = `
+  const noMessages = [
+    "¿Segura? 🙁",
+    "¿De verdad, no? 🥺",
+    "Eso duele un poquito 😟💔",
+    "¿Segura que no quieres? 😢",
+    "Me voy a poner triste 🥺",
+    "¿Y si mejor sí? 😔",
+    "Prometo que será bonito 🥺💖",
+    "Solo quería verte sonreír 😞",
+    "Pensé que dirías que sí 🥺",
+    "No era la respuesta que esperaba 💔",
+    "¿Ni por ser un día especial? 🥺",
+    "Voy a fingir que no vi eso 😔",
+    "Aún hay tiempo de cambiar de idea 🙁",
+    "Eso no es una opción 🥺",
+  ];
+
+  let msgIndex = 0;
+
+  // =========================
+  // BOTÓN NO (HUYE)
+  // =========================
+  noBtn.addEventListener("click", moveNo);
+
+  function moveNo() {
+    const x = Math.random() * 80;
+    const y = Math.random() * 60;
+
+    noBtn.style.left = `${x}%`;
+    noBtn.style.top = `${y}px`;
+
+    noBtn.textContent = noMessages[msgIndex];
+    msgIndex = (msgIndex + 1) % noMessages.length;
+
+    // vibración triste suave
+    if (navigator.vibrate) {
+      navigator.vibrate(15);
+    }
+  }
+
+  // =========================
+  // BOTÓN SÍ
+  // =========================
+  yesBtn.addEventListener("click", openLetter);
+
+  function openLetter() {
+
+    createConfetti();
+
+    // vibración inicial tipo latido
+    if (navigator.vibrate) {
+      navigator.vibrate([40, 60, 80, 60, 40]);
+    }
+
+    card.innerHTML = `
     <div class="letter">
       <h1 class = "title">Una sorpresita para ti mi niña</br> ❤️ Jenny ❤️ </h1>
       <div class="name">${nombre}</div>
@@ -90,8 +91,37 @@ function openLetter() {
 
     </div>
   `;
-}
 
+    startHeartbeatVibration();
+  }
+
+  // =========================
+  // VIBRACIÓN SINCRONIZADA
+  // =========================
+  let heartbeatInterval = null;
+
+  function startHeartbeatVibration() {
+    if (!navigator.vibrate) return;
+
+    if (heartbeatInterval) clearInterval(heartbeatInterval);
+
+    heartbeatInterval = setInterval(() => {
+      setTimeout(() => {
+        navigator.vibrate(20); // vibración suave
+      }, 900); // mitad de 1.8s (tu animación heartbeat)
+    }, 1800);
+  }
+
+  function stopHeartbeatVibration() {
+    if (heartbeatInterval) {
+      clearInterval(heartbeatInterval);
+      heartbeatInterval = null;
+    }
+  }
+
+  // =========================
+  // CONFETTI
+  // =========================
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 
@@ -154,3 +184,4 @@ function updateConfetti() {
     }
   });
 }
+});
