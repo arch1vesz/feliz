@@ -26,8 +26,8 @@ let msgIndex = 0;
 noBtn.addEventListener("click", moveNo);
 
 function moveNo() {
-  const x = Math.random() * 80;
-  const y = Math.random() * 80;
+  const x = Math.random() * 90;
+  const y = Math.random() * 90;
 
   noBtn.style.left = `${x}%`;
   noBtn.style.top = `${y}px`;
@@ -38,11 +38,23 @@ function moveNo() {
 
 // Botón SÍ
 
+function vibrateLove(style = "heartbeat") {
+  if (!navigator.vibrate) return;
+
+  const patterns = {
+    soft: [25, 40, 25],
+    heartbeat: [40, 60, 80, 60, 40],
+    celebration: [50, 30, 50, 30, 100],
+    long: [120]
+  };
+
+  navigator.vibrate(patterns[style] || patterns.heartbeat);
+}
 
 function openLetter() {
   createConfetti();
   if (navigator.vibrate) {
-    navigator.vibrate([80, 40, 80]);
+    vibrateLove("heartbeat");
   }
 
   const card = document.getElementById("card");
