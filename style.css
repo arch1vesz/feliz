@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --pink: #ff7ab6;
+  --pink-soft: #ffd6e8;
+  --purple: #845ef7;
+  --dark: #2f2f2f;
+  --glass: rgba(255,255,255,.22);
+  --border-glass: rgba(255,255,255,.35);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: url("pexels-eberhardgross-1287142.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* CONTENEDOR */
+.glass-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+/* TARJETA */
+.glass-card {
+  width: 100%;
+  max-width: 1100px;
+  min-height: 520px;
+  padding: 45px;
+  border-radius: 28px;
+
+  background: rgba(255, 255, 255, 0.26);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+
+  text-align: center;
+  color: white;
+  animation: fadeIn 1s ease;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--dark);
+  text-shadow: 0 0 10px #ff9acb;
+}
+
+p {
+  font-size: 2rem;
+  line-height: 1.8;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  color: var(--dark);
+  text-shadow: 0 0 10px #ff9acb;
+}
+
+
+
+/* BOTONES */
+.buttons {
+  position: relative;
+  height: 80px;
+}
+
+.btn {
+  padding: 16px 34px;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  letter-spacing: .3px;
+}
+
+.yes {
+  background: linear-gradient(135deg, #ff85c2, #ff5c8a);
+  box-shadow: 0 8px 20px rgba(255, 93, 166, 0.5);
+  color: white;
+  transform: translateX(-120%);
+}
+
+.no {
+  background: linear-gradient(135deg, #868e96, #495057);
+  box-shadow: 0 8px 20px rgba(71, 65, 68, 0.5);
+  color: white;
+  transform: translateX(20%);
+}
+
+.no:hover{
+animation: shake 0.4s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(20%) rotate(0deg); }
+  25% { transform: translateX(22%) rotate(2deg); }
+  50% { transform: translateX(18%) rotate(-2deg); }
+  75% { transform: translateX(22%) rotate(2deg); }
+  100% { transform: translateX(20%) rotate(0deg); }
+}
+
+/* CARTA */
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--dark);
+  animation: heartbeat 1.8s infinite, glow 2.5s infinite;
+}
+
+.letter p {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ff9acb; }
+  50% { text-shadow: 0 0 25px #ffc1dd; }
+  100% { text-shadow: 0 0 10px #ff9acb; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  h1 { font-size: 2.1rem; }
+  .name { font-size: 2.3rem; }
+  .btn { font-size: 1rem; }
+}
+
+.title {
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+#question{
+  color: var(--dark);
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
