@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // vibración inicial tipo latido
     if (navigator.vibrate) {
-      navigator.vibrate([40, 60, 80, 60, 40]);
+      const secondBeat = 20 + Math.random() * 10;
+navigator.vibrate([45, 70, secondBeat]);
     }
 
     card.innerHTML = `
@@ -107,7 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     heartbeatInterval = setInterval(() => {
       setTimeout(() => {
-        navigator.vibrate([45, 70, 25]); // vibración suave
+        const secondBeat = 20 + Math.random() * 10;
+navigator.vibrate([45, 70, secondBeat]); // vibración suave
       }, 900); // mitad de 1.8s (tu animación heartbeat)
     }, 1800);
   }
