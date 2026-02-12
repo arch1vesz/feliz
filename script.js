@@ -49,7 +49,7 @@ function openLetter() {
 
   card.innerHTML = `
     <div class="letter">
-      <h1 class = "title">Una sorpresita para ti mi niña</br>Jenny</h1>
+      <h1 class = "title">Una sorpresita para ti mi niña</br> ❤️ Jenny ❤️ </h1>
       <div class="name">${nombre}</div>
       </br>
       <p>
