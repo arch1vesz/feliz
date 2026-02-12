@@ -129,7 +129,7 @@ animation: shake 0.4s;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: bold;
   color: var(--dark);
-  animation: heartbeat 1.8s infinite, glow 2.5s infinite;
+  animation: heartbeat 1.8s infinite, glow 1.8s infinite;
 }
 
 .letter p {
@@ -150,9 +150,8 @@ animation: shake 0.4s;
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 10px #ff9acb; }
-  50% { text-shadow: 0 0 25px #ffc1dd; }
-  100% { text-shadow: 0 0 10px #ff9acb; }
+  0%, 100% { text-shadow: 0 0 8px #ff9acb; }
+  50% { text-shadow: 0 0 28px #ffc1dd; }
 }
 
 /* RESPONSIVE */
@@ -160,7 +159,7 @@ animation: shake 0.4s;
 
 .title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  background: linear-gradient(90deg, var(--pink), var(--purple));
+  background: var(--purple);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
