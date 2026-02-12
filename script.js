@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     heartbeatInterval = setInterval(() => {
       setTimeout(() => {
-        navigator.vibrate(20); // vibración suave
+        navigator.vibrate([45, 70, 25]); // vibración suave
       }, 900); // mitad de 1.8s (tu animación heartbeat)
     }, 1800);
   }
