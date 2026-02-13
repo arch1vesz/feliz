@@ -8,10 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const noMessages = [
     "¿Segura? 🙁",
-    "¿De verdad, no? 🥺",
+    "¿Po qué, no? 🥺",
     "Eso duele un poquito 😟💔",
     "¿Segura que no quieres? 😢",
-    "Me voy a poner triste 🥺",
+    "Me voy a poner tiste 🥺",
     "¿Y si mejor sí? 😔",
     "Prometo que será bonito 🥺💖",
     "Solo quería verte sonreír 😞",
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Voy a fingir que no vi eso 😔",
     "Aún hay tiempo de cambiar de idea 🙁",
     "Eso no es una opción 🥺",
+    "Andale, po favo 😢",
   ];
 
   let msgIndex = 0;
@@ -73,12 +74,12 @@ navigator.vibrate([45, 70, secondBeat]);
 
       <p>
         Gracias por ser tú, por tu ternura, y por cada momento que compartimos 💕
-        No sabes lo feliz que me hace caminar a tu lado, amo cada cosita de ti, y amo, ser tu novio ❤️
+        no sabes lo feliz que me hace caminar a tu lado, amo cada cosita de ti, y amo, ser tu novio ❤️
       </p>
 
       <p>
         Deseo que cumplas muchísimos años más mi amor, y que me permitas vivirlos contigo,
-        un vida llena de sueños cumplidos, abracitos infinitos, besitos lindos, de hermosos momentos
+        una vida llena de sueños cumplidos, abracitos infinitos, besitos lindos, de hermosos momentos
         que nos hagan sonreír juntos 😍 a tu ladito siempre, para apoyarte, celebrarte y amarte con todo mi corazón 🥰
       </p>
 
