@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "¿Segura? 🙁",
     "¿Po qué, no? 🥺",
     "Eso duele un poquito 😟💔",
+    "Y me dejo pegar, chi? 🥺",
     "¿Segura que no quieres? 😢",
     "Me voy a poner tiste 🥺",
     "¿Y si mejor sí? 😔",
